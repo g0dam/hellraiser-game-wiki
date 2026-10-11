@@ -16,6 +16,7 @@ jobs:
           node-version: '22'
       - run: npm run build
       - run: npm run check
+      - run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

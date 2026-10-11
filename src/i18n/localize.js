@@ -40,11 +40,13 @@ export function localizeHtml(html, locale, path) {
     }
     return `<script type="application/ld+json">${JSON.stringify(localize(JSON.parse(raw))).replace(/</g,'\\u003c')}</script>`;
   });
-  let inScript=false;
+  let inScript=false, originalText=false;
   return html.split(/(<[^>]+>)/g).map(token=>{
     if(token.startsWith('<script')) {inScript=true;return token;}
     if(token.startsWith('</script')) {inScript=false;return token;}
     if(inScript) return token;
+    if(token.startsWith('<')&&token.includes('data-original-text')) {originalText=true;return token;}
+    if(originalText){if(token.startsWith('</'))originalText=false;return token;}
     if(!token.startsWith('<')) return translate(token);
     token = token.replace(/(alt|aria-label|placeholder|content)="([^"]*)"/g, (all,key,value)=>{
       if(key==='content' && !/(?:name="description"|property="og:(?:title|description|image:alt)")/.test(token)) return all;

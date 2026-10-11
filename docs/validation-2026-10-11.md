@@ -22,3 +22,9 @@ No first-hand gameplay playtest, current-patch trophy confirmation, new search r
 ## Production verification
 
 Record the deployment run and live verification after push/SHA confirmation. Search Console submission and indexing are separate from deployment.
+
+## Subsequent landing and retention release
+
+The prior 42-HTML validation above describes the first multilingual release. This follow-up builds 45 HTML files (42 sitemap content URLs plus three noindex 404s). It replaces the homepage concept hero with an attributed real publisher screenshot, adds three verified video previews and a translated video-guide page, bookmarks/recent history/resume/share, and dedicated opt-in GA4. `npm run build`, `npm run check`, `npm test` and `git diff --check` pass. Browser checks confirm five homepage remote images load, English video guide saved is restored on Spanish homepage, actual 390 CSS-pixel layout has no horizontal overflow, and the Spanish bath clip loads the selected youtube-nocookie iframe on explicit action. Native sharing opens a dialog; VM checks cover success/cancel/fallback, with no claim of recipient delivery.
+
+The dedicated GA4 Web stream was created after explicit user approval; G-4SL620DDSQ, stream ID 16106964643, Enhanced measurement off. Collection/Realtime receipt is validated separately after publication.

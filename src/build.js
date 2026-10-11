@@ -10,7 +10,7 @@ const dist=join(root,'dist');
 await rm(dist,{recursive:true,force:true});
 await mkdir(dist,{recursive:true});
 const revisions={};
-for(const asset of ['styles/main.css','scripts/main.js'])revisions[asset]=createHash('sha256').update(await readFile(join(root,'src',asset))).digest('hex').slice(0,12);
+for(const asset of ['styles/main.css','styles/engagement.css','scripts/main.js','scripts/engagement.js','scripts/analytics.js','scripts/media.js'])revisions[asset]=createHash('sha256').update(await readFile(join(root,'src',asset))).digest('hex').slice(0,12);
 for(const locale of locales) for(const p of pages){const path=p.slug==='index'?'/':p.slug==='404'?'/404.html':`/${p.slug}/`;const file=join(dist,locale==='en'?p.path:`${locale}/${p.path}`);await mkdir(dirname(file),{recursive:true});let html=localizeHtml(p.render(),locale,path);for(const [asset,hash] of Object.entries(revisions))html=html.replace(`/${asset}`,`/${asset}?v=${hash}`);await writeFile(file,html);}
 assertComplete();
 for(const folder of ['styles','scripts'])await cp(join(root,'src',folder),join(dist,folder),{recursive:true});

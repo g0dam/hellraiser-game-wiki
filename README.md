@@ -44,7 +44,7 @@ Each useful intent has one stable URL and substantive static HTML. Canonicals ta
 
 Content lives in `src/data/content.js` and `src/templates/pages.js`; shared visual direction is in `src/styles/main.css` and `src/templates/layout.js`. Keep update dates accurate when facts change. Open a [GitHub issue](https://github.com/g0dam/hellraiser-game-wiki/issues) with the page, evidence, platform and game version for a correction. Never attach credentials.
 
-Privacy: no analytics or backend; progress stays in the browser. Hosting request processing is governed by GitHub’s privacy statement. The initial visual implementation was produced through the user-authorized Claude Code session and then completed and reviewed by Codex. No restricted ShipAny template source or history is included.
+Privacy: no backend or accounts; progress, bookmarks and history stay in the browser. Google Analytics is optional and loads only after visitor opt-in. Hosting request processing is governed by GitHub’s privacy statement. The initial visual implementation was produced through the user-authorized Claude Code session and then completed and reviewed by Codex. No restricted ShipAny template source or history is included.
 
 ## Language and image maintenance
 
@@ -53,3 +53,9 @@ English keeps its original URLs. Complete build-time dictionaries live in `src/i
 The homepage illustration was made with the built-in image_gen tool and is explicitly conceptual. Two real screenshots are referenced remotely from Saber’s media gallery with source captions; their rights are not granted by the MIT code license. See `docs/image-provenance.json` for exact sources and the generation prompt. Remote availability is outside this static site’s control.
 
 The player journey and search plan is in `docs/optimization-plan.md`, with dated Steam review-language evidence in `docs/audience-evidence.json`. Review counts are not player counts or search-volume estimates.
+
+## Landing media and engagement
+
+See [the landing plan](docs/landing-retention-plan.md) and [verified media evidence](docs/media-research-2026-10-11.md). `/videos/` and its Russian/Spanish equivalents contain creator-linked video guidance. Bookmarks/history are local and independent of checklist progress.
+
+`src/data/analytics.json` accepts a dedicated GA4 measurement ID; an empty ID disables Analytics completely. Disable Enhanced measurement in that stream before enabling. Analytics loads only after opt-in; visitors can revise consent in the footer. `npm test` verifies request gating, URL/parameter sanitization and revocation. Deployment does not prove GA Realtime receipt.

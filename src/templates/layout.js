@@ -1,3 +1,6 @@
+import {readFileSync} from "node:fs";
+const analyticsId=JSON.parse(readFileSync(new URL("../data/analytics.json",import.meta.url),"utf8")).measurementId;
+if(analyticsId&&!/^G-[A-Z0-9]{4,20}$/.test(analyticsId)) throw new Error("Invalid Google Analytics measurement ID");
 import { site, navigation, sources as globalSources } from "../data/content.js";
 
 const puzzleBoxIcon = `<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +68,7 @@ function footer() {
     </div>
     <div class="footer-col">
       <h2>Independent & open source</h2>
-      <p><a href="/about/">Editorial policy & privacy</a> · <a href="https://github.com/g0dam/hellraiser-game-wiki">Source on GitHub</a></p><p>Unofficial fan companion. Not affiliated with Saber Interactive or the rights holders of Hellraiser.</p>
+      <p><a href="/about/">Editorial policy & privacy</a> <button class="guide-action" type="button" data-analytics-preferences hidden>Analytics preferences</button> · <a href="https://github.com/g0dam/hellraiser-game-wiki">Source on GitHub</a></p><p>Unofficial fan companion. Not affiliated with Saber Interactive or the rights holders of Hellraiser.</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -106,6 +109,7 @@ export function renderPage({
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  ${analyticsId?`<meta name="google-analytics-id" content="${analyticsId}">`:""}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(description)}">
@@ -123,6 +127,7 @@ export function renderPage({
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/engagement.css">
   ${ld.map(jsonLd).join("\n  ")}
 </head>`;
 
@@ -134,6 +139,7 @@ export function renderPage({
     return `<h2 id="${id}">${text}</h2>`;
   });
   if (sections.length > 2 && slug !== 'puzzles') content = content.replace(/(<p class="page-meta">.*?<\/p>)/s, `$1<nav class="page-toc" aria-label="On this page"><strong>On this page</strong><ul>${sections.map(s=>`<li><a href="#${s.id}">${s.label}</a></li>`).join('')}</ul></nav>`);
+  if(slug!=='index'&&slug!=='404') content=content.replace(/(<p class="page-meta">.*?<\/p>)/s, '$1<div data-guide-actions hidden></div>');
   const body = `
 <body>
 ${header({ currentPath })}
@@ -142,6 +148,9 @@ ${breadcrumb(breadcrumbs)}
 ${content}
 </main>
 ${footer()}
+<script src="/scripts/analytics.js" defer></script>
+<script src="/scripts/engagement.js" defer></script>
+<script src="/scripts/media.js" defer></script>
 <script src="/scripts/main.js" defer><\/script>
 </body>
 </html>`;
