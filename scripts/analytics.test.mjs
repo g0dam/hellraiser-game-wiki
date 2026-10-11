@@ -24,6 +24,7 @@ app.window.hrTrack('progress_import',{guide_id:'/ru/puzzles/bath-keypad/',method
 const event=app.queue().at(-1);assert.deepEqual(JSON.parse(JSON.stringify(event[2])),{language:'en',method:'clipboard',guide_id:'bath-keypad',video_id:'abc123456_-',spoiler_tier:3,checked:true,success:false});
 app.window.hrTrack('share_click',{guide_id:'private-person-name',method:'custom-person',video_id:'private',spoiler_tier:99,checked:'yes'});assert.deepEqual(JSON.parse(JSON.stringify(app.queue().at(-1)[2])),{language:'en'});
 app.listeners['window:storage']({key:'hellraiser-analytics-consent-v1',newValue:'denied'});const before=app.queue().length;assert.equal(app.window.hrTrack('guide_save',{guide_id:'index'}),false);assert.equal(app.queue().length,before);
+app.listeners['window:storage']({key:'hellraiser-analytics-consent-v1',newValue:'granted'});assert.equal(pageViews(),1);assert.equal(app.window.hrTrack('guide_save',{guide_id:'index'}),true);
 const denied=create({initial:'denied'});assert.equal(denied.head.children.length,0);assert.equal(denied.nodes.filter(n=>n.className==='analytics-consent').length,0);
 const invalid=create({id:'not-configured'});assert.equal(invalid.head.children.length,0);assert.equal(invalid.nodes.filter(n=>n.tag==='button').length,0);
 const pending=create();pending.clicks().find(n=>n.textContent==='Allow analytics').listeners.click();pending.listeners['window:storage']({key:'hellraiser-analytics-consent-v1',newValue:'denied'});pending.head.children[0].onload();assert.equal(pending.queue().filter(a=>a[1]==='page_view').length,0);

@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {locales,route} from '../src/i18n/localize.js';
 const root=fileURLToPath(new URL('../dist/',import.meta.url));
 async function walk(dir){let out=[];for(const n of await readdir(dir)){const p=join(dir,n);out.push(...(await stat(p)).isDirectory()?await walk(p):[p]);}return out;}
-const files=await walk(root);const htmls=files.filter(f=>f.endsWith('.html'));let errors=[];const canonicalSet=new Set(),titles=new Set();
+const files=await walk(root);const htmls=files.filter(f=>f.endsWith('.html')&&!/\/google[a-f0-9]+\.html$/.test(f));let errors=[];const canonicalSet=new Set(),titles=new Set();
 for(const file of htmls){const html=await readFile(file,'utf8');const relative=file.slice(root.length);const canonical=html.match(/rel="canonical" href="([^"]+)"/)?.[1];const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  const locale=relative.startsWith('ru/')?'ru':relative.startsWith('es/')?'es':'en';
  const expected='https://hellraisergame.wiki/'+(relative==='index.html'?'':relative.replace(/index\.html$/,''));
@@ -34,3 +34,5 @@ const sitemap=await readFile(join(root,'sitemap.xml'),'utf8');if(sitemap.include
 for(const c of canonicalSet){if(c.endsWith('404.html'))continue;if(!sitemap.includes(`<loc>${c}</loc>`))errors.push(`Not in sitemap: ${c}`);}
 for(const lang of locales)if(!/noindex/.test(await readFile(join(root,lang==='en'?'404.html':`${lang}/404.html`),'utf8')))errors.push(`${lang} 404 not noindex`);
 if(errors.length){console.error(errors.join('\n'));process.exit(1);}console.log(`PASS: ${htmls.length} pages; unique canonical/title, locale metadata, reciprocal alternates, image dimensions/alt, JSON-LD, internal links/assets/anchors, sitemap and 404.`);
+
+const verification=await readFile(join(root,'googlec2cb467714d97bac.html'),'utf8');if(verification.trim()!=='google-site-verification: googlec2cb467714d97bac.html')throw new Error('Invalid GSC verification file');

@@ -124,6 +124,8 @@ a:focus {
 }
 
 .menu-toggle {
+  min-height:44px;
+  min-width:44px;
   display: none;
   background: none;
   border: 1px solid var(--border);
@@ -733,7 +735,7 @@ figcaption{font:.7rem/1.6 var(--font-ui);color:var(--parchment-muted);margin-top
 
 .hero h1{font-size:clamp(2.6rem,4.2vw,3.65rem);}
 
-@media(max-width:700px){.language-switch{order:4;flex-basis:100%;margin:0;gap:1.1rem;}.menu-toggle{margin-left:auto;}.language-switch a{min-height:24px;display:flex;align-items:center;padding:.4rem .1rem;}.header-inner{gap:.3rem 1rem;}.content h2{scroll-margin-top:9rem;}}
+@media(max-width:700px){.language-switch{order:4;flex-basis:100%;margin:0;gap:1.1rem;}.menu-toggle{margin-left:auto;}.language-switch a{min-height:44px;display:flex;align-items:center;padding:.4rem .1rem;}.header-inner{gap:.3rem 1rem;}.content h2{scroll-margin-top:9rem;}}
 
 /* Player tasks and real media form the landing page's main rhythm. */
 .landing-content { max-width:1160px; }

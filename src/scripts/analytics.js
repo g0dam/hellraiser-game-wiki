@@ -13,7 +13,7 @@
  const eventNames=new Set(['guide_save','guide_unsave','share_click','share_success','share_cancel','share_failed','video_open','guide_navigation','spoiler_open','checklist_change','progress_export','progress_import','return_guide']);
  const guideNames=new Set(['index','home','puzzles','painting-keypad','bath-keypad','mansion-keypad','collectibles','crafting','trophies','walkthrough','game-info','demo','about','beginner-guide','videos','404']);
  const methods=new Set(['native','clipboard','copy','fallback','link','open','x','reddit','facebook','whatsapp','telegram','manual','bookmark','saved','recent']);
- let consent=null,enabled=false,requested=false,loaded=false,failed=false,temporary=false,banner=null;
+ let consent=null,enabled=false,requested=false,loaded=false,failed=false,temporary=false,banner=null,pageViewSent=false;
  try{const value=localStorage.getItem(key);if(value==='granted'||value==='denied')consent=value;}catch{temporary=true;}
  const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
  function gtag(){window.dataLayer.push(arguments);}
@@ -33,7 +33,7 @@
  function announce(text){status.textContent=text+(temporary?' '+ui.temporary:'');status.hidden=false;}
  function cleanPageLocation(){const path=pageGuide==='404'?'/404.html':location.pathname;return location.origin+path;}
  function cleanReferrer(){try{const url=new URL(document.referrer);return /^(https?:)$/.test(url.protocol)&&url.origin!==location.origin?url.origin+'/':'';}catch{return '';}}
- function pageView(){gtag('event','page_view',{page_location:cleanPageLocation(),page_title:(document.title||'Hellraiser Revival Wiki').slice(0,160),page_referrer:cleanReferrer(),language:locale});}
+ function pageView(){if(pageViewSent)return;pageViewSent=true;gtag('event','page_view',{page_location:cleanPageLocation(),page_title:(document.title||'Hellraiser Revival Wiki').slice(0,160),page_referrer:cleanReferrer(),language:locale});}
  function activate(){enabled=true;
   if(!requested){requested=true;window.dataLayer=window.dataLayer||[];window.gtag=gtag;
    gtag('consent','default',{...denied});gtag('js',new Date());
