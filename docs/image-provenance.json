@@ -1,0 +1,36 @@
+{
+  "checked": "2026-10-11",
+  "assets": [
+    {
+      "path": "public/images/field-guide-hero.webp",
+      "kind": "AI-generated conceptual editorial illustration",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: stylized-concept. Asset type: wide landscape 3:2 editorial illustration for an independent survival-horror game guide. An eerie abandoned Victorian study with a tarnished brass geometric puzzle cube resting on a scarred dark wooden desk, worn paper map and unmarked notebook beside it, doorway leading into a shadowy labyrinth beyond. Original atmosphere, not a screenshot or recreation of a specific game scene. Deep charcoal, muted parchment gold and subtle oxblood tones, tactile painterly photographic realism, restrained cinematic light from the left, readable silhouette and generous dark space, detailed brass and wood. No people, gore, text, logos, watermarks, numbers or UI. Compose as a landscape image usable in a website hero and identifiable as conceptual editorial art.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "claims": "Not a gameplay screenshot; does not establish puzzle or location facts"
+    },
+    {
+      "url": "https://saber.games/_next/static/media/screenshot-01.65b60356.jpg",
+      "kind": "official game screenshot",
+      "source": "https://saber.games/hellraiserrevival",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "rights": "Referenced remotely; copyright remains with respective rights holders; excluded from MIT code license"
+    },
+    {
+      "url": "https://saber.games/_next/static/media/screenshot-02.22685998.jpg",
+      "kind": "official promotional screenshot",
+      "source": "https://saber.games/hellraiserrevival",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "rights": "Referenced remotely; copyright remains with respective rights holders; excluded from MIT code license"
+    }
+  ]
+}

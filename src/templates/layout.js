@@ -126,6 +126,14 @@ export function renderPage({
   ${ld.map(jsonLd).join("\n  ")}
 </head>`;
 
+  let sectionIndex = 0;
+  const sections = [];
+  if (slug !== 'index' && slug !== '404') content = content.replace(/<h2>(.*?)<\/h2>/gs, (_, text) => {
+    const id = `section-${++sectionIndex}`;
+    if (!text.includes('checklist-summary')) sections.push({id, label: text.replace(/<[^>]*>/g, '')});
+    return `<h2 id="${id}">${text}</h2>`;
+  });
+  if (sections.length > 2 && slug !== 'puzzles') content = content.replace(/(<p class="page-meta">.*?<\/p>)/s, `$1<nav class="page-toc" aria-label="On this page"><strong>On this page</strong><ul>${sections.map(s=>`<li><a href="#${s.id}">${s.label}</a></li>`).join('')}</ul></nav>`);
   const body = `
 <body>
 ${header({ currentPath })}

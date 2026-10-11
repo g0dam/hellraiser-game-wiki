@@ -703,3 +703,34 @@ main {
 @media print{.site-header,.site-footer,.hero-actions,.js-control{display:none!important;}body{background:white;color:black;}a{color:black;}details>*{display:block;}.content{max-width:none;}}
 
 .breadcrumb{max-width:1120px;}
+
+/* A field guide first: visible journeys, image provenance and readable sections. */
+.header-inner{flex-wrap:wrap;gap:.6rem 1.5rem;padding-top:1rem;padding-bottom:.7rem;}
+.main-nav{order:3;flex-basis:100%;}
+.main-nav ul{justify-content:flex-start;gap:1.7rem;}
+.language-switch{margin-left:auto;display:flex;gap:.8rem;font:.72rem var(--font-ui);}
+.language-switch a{padding:.6rem .1rem;text-decoration:none;}
+.language-switch [aria-current]{color:var(--accent);text-decoration:underline;text-underline-offset:.35rem;}
+.hero{padding-top:3rem;}
+.hero-grid{grid-template-columns:1.1fr 1.1fr;gap:2.8rem;}
+.hero-game-name{display:block;font:.8rem/1.8 var(--font-ui);letter-spacing:.09em;color:var(--accent);margin-bottom:1rem;}
+.hero-art{margin:0;}
+.hero-art img{width:100%;height:auto;display:block;border:1px solid var(--border);}
+figcaption{font:.7rem/1.6 var(--font-ui);color:var(--parchment-muted);margin-top:.55rem;}
+.journey-links{display:flex;flex-wrap:wrap;gap:.7rem 1.5rem;padding:1.1rem 0;border-bottom:1px solid var(--border);font:.85rem/1.7 var(--font-ui);}
+.journey-links span{color:var(--accent);flex-basis:100%;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;}
+.page-toc{margin:1.6rem 0 2.4rem;padding:1rem 0;border-block:1px solid var(--border);font:.82rem/1.8 var(--font-ui);}
+.page-toc strong{font-weight:500;color:var(--accent);}
+.page-toc ul{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem;list-style:none;margin:.5rem 0 0;padding:0;}
+.content h2{scroll-margin-top:8rem;}
+.next-step{margin:2rem 0;padding:1.25rem;background:var(--bg-elevated);border:1px solid var(--border);}
+.next-step h2{margin-top:0;font-size:1.2rem;border:0;}
+.next-step p:last-child{margin-bottom:0;}
+.game-media{margin:2rem 0;}
+.game-media img{width:100%;height:auto;display:block;background:var(--bg-elevated);border:1px solid var(--border);}
+@media(max-width:900px){.hero-grid{gap:1.5rem;}.main-nav ul{gap:.45rem 1.3rem;}}
+@media(max-width:700px){.header-inner{padding-block:.6rem;}.language-switch{margin-left:auto;}.hero-grid{grid-template-columns:1fr;}.hero-art{max-width:560px;}.hero-art img{aspect-ratio:3/2;object-fit:cover;}.hero h1{font-size:2.6rem;}.hero-game-name{font-size:.7rem;}.js .main-nav{left:0;width:100%;box-sizing:border-box;}.main-nav ul{gap:.35rem;}.page-toc ul{display:block;}.page-toc li{padding:.2rem 0;}.content h2{scroll-margin-top:6rem;}.journey-links{gap:.7rem 1rem;}.hero-actions .btn{flex:1 1 10rem;}}
+
+.hero h1{font-size:clamp(2.6rem,4.2vw,3.65rem);}
+
+@media(max-width:700px){.language-switch{order:4;flex-basis:100%;margin:0;gap:1.1rem;}.menu-toggle{margin-left:auto;}.language-switch a{min-height:24px;display:flex;align-items:center;padding:.4rem .1rem;}.header-inner{gap:.3rem 1rem;}.content h2{scroll-margin-top:9rem;}}

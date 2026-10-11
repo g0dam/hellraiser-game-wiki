@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-11",
+  "source": "https://store.steampowered.com/appreviews/1551980?json=1&language=english&purchase_type=all&filter=all&num_per_page=1",
+  "method": "Same public query repeated per language; review language is not country or player count. Snapshot may differ from cached store totals or purchase filters. No search-volume inference.",
+  "languages": [
+    {
+      "language": "english",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 9,
+        "review_score_desc": "Overwhelmingly Positive",
+        "total_positive": 1871,
+        "total_negative": 86,
+        "total_reviews": 1957
+      },
+      "success": 1
+    },
+    {
+      "language": "german",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 128,
+        "total_negative": 5,
+        "total_reviews": 133
+      },
+      "success": 1
+    },
+    {
+      "language": "spanish",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 60,
+        "total_negative": 2,
+        "total_reviews": 62
+      },
+      "success": 1
+    },
+    {
+      "language": "latam",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 7,
+        "review_score_desc": "Positive",
+        "total_positive": 25,
+        "total_negative": 0,
+        "total_reviews": 25
+      },
+      "success": 1
+    },
+    {
+      "language": "brazilian",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 65,
+        "total_negative": 0,
+        "total_reviews": 65
+      },
+      "success": 1
+    },
+    {
+      "language": "french",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 54,
+        "total_negative": 1,
+        "total_reviews": 55
+      },
+      "success": 1
+    },
+    {
+      "language": "russian",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 609,
+        "total_negative": 49,
+        "total_reviews": 658
+      },
+      "success": 1
+    },
+    {
+      "language": "schinese",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 8,
+        "review_score_desc": "Very Positive",
+        "total_positive": 263,
+        "total_negative": 31,
+        "total_reviews": 294
+      },
+      "success": 1
+    },
+    {
+      "language": "japanese",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 0,
+        "review_score_desc": "3 user reviews",
+        "total_positive": 3,
+        "total_negative": 0,
+        "total_reviews": 3
+      },
+      "success": 1
+    },
+    {
+      "language": "koreana",
+      "summary": {
+        "num_reviews": 1,
+        "review_score": 6,
+        "review_score_desc": "Mostly Positive",
+        "total_positive": 19,
+        "total_negative": 6,
+        "total_reviews": 25
+      },
+      "success": 1
+    }
+  ]
+}

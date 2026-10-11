@@ -1,6 +1,6 @@
 # Hellraiser Game Wiki
 
-An independent English companion for **Clive Barker’s Hellraiser: Revival** at [hellraisergame.wiki](https://hellraisergame.wiki). Original static site code, MIT licensed. Unaffiliated with Saber Interactive or the Hellraiser rights holders. The code license grants no rights to game IP or third-party articles.
+An independent English, Russian and Spanish companion for **Clive Barker’s Hellraiser: Revival** at [hellraisergame.wiki](https://hellraisergame.wiki). Original static site code, MIT licensed. Unaffiliated with Saber Interactive or the Hellraiser rights holders. The code license grants no rights to game IP or third-party articles.
 
 ## Run locally
 
@@ -16,6 +16,7 @@ Open http://127.0.0.1:3005. Build output is `dist/`, excluded from Git. Run comm
 
 ## Contents
 
+- A first-run preparation route and page-level contents navigation.
 - Three sourced keypad guides with hint, clue and answer tiers.
 - A 27-entry collectibles checklist and 12-recipe acquired/crafted tracker.
 - Local progress storage, cross-tab updates, JSON export/import and reset.
@@ -37,10 +38,18 @@ Pages must use the GitHub Actions source and custom domain `hellraisergame.wiki`
 
 ## SEO and answer-engine discovery
 
-Each useful intent has one stable URL and substantive static HTML. Canonicals target the custom domain. The build emits `sitemap.xml`, `robots.txt`, social metadata, matching Article/Breadcrumb structured data and a `noindex` 404 page. Source dates and limits are visible. No special AI file or schema is claimed to guarantee citations. Deployment does not establish search indexing or rankings; Search Console submission and indexing are separate checks.
+Each useful intent has one stable URL and substantive static HTML. Canonicals target the custom domain. The build emits `sitemap.xml`, `robots.txt`, social metadata, fully translated static Russian `/ru/` and Spanish `/es/` pages, reciprocal language alternates, matching Article/Breadcrumb structured data and a `noindex` 404 page. Source dates and limits are visible. No special AI file or schema is claimed to guarantee citations. Deployment does not establish search indexing or rankings; Search Console submission and indexing are separate checks.
 
 ## Maintenance
 
 Content lives in `src/data/content.js` and `src/templates/pages.js`; shared visual direction is in `src/styles/main.css` and `src/templates/layout.js`. Keep update dates accurate when facts change. Open a [GitHub issue](https://github.com/g0dam/hellraiser-game-wiki/issues) with the page, evidence, platform and game version for a correction. Never attach credentials.
 
 Privacy: no analytics or backend; progress stays in the browser. Hosting request processing is governed by GitHub’s privacy statement. The initial visual implementation was produced through the user-authorized Claude Code session and then completed and reviewed by Codex. No restricted ShipAny template source or history is included.
+
+## Language and image maintenance
+
+English keeps its original URLs. Complete build-time dictionaries live in `src/i18n/ru.json` and `src/i18n/es.json`; untranslated text fails the build. Dynamic progress and search messages are localized in `src/scripts/main.js`. Native language labels remain recognizable. All languages share the same browser progress record and export format. Chinese is excluded from this release.
+
+The homepage illustration was made with the built-in image_gen tool and is explicitly conceptual. Two real screenshots are referenced remotely from Saber’s media gallery with source captions; their rights are not granted by the MIT code license. See `docs/image-provenance.json` for exact sources and the generation prompt. Remote availability is outside this static site’s control.
+
+The player journey and search plan is in `docs/optimization-plan.md`, with dated Steam review-language evidence in `docs/audience-evidence.json`. Review counts are not player counts or search-volume estimates.
