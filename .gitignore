@@ -1,0 +1,12 @@
+dist/
+node_modules/
+.env
+.env.*
+.DS_Store
+*.log
+# Keep local/generated artifacts excluded if tooling is expanded later.
+data/local.db
+.output/
+.nitro/
+src/paraglide/
+src/routeTree.gen.ts
