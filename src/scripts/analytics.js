@@ -11,7 +11,7 @@
  };
  const ui=messages[locale],key='hellraiser-analytics-consent-v1';
  const eventNames=new Set(['guide_save','guide_unsave','share_click','share_success','share_cancel','share_failed','video_open','guide_navigation','spoiler_open','checklist_change','progress_export','progress_import','return_guide']);
- const guideNames=new Set(['index','home','puzzles','painting-keypad','bath-keypad','mansion-keypad','collectibles','crafting','trophies','walkthrough','game-info','demo','about','beginner-guide','videos','404']);
+ const guideNames=new Set(['index','home','puzzles','painting-keypad','bath-keypad','mansion-keypad','collectibles','crafting','trophies','walkthrough','game-info','demo','about','beginner-guide','videos','guides','skull-tongue-key','endings','trophies/first-zora-shop','404']);
  const methods=new Set(['native','clipboard','copy','fallback','link','open','x','reddit','facebook','whatsapp','telegram','manual','bookmark','saved','recent']);
  let consent=null,enabled=false,requested=false,loaded=false,failed=false,temporary=false,banner=null,pageViewSent=false;
  try{const value=localStorage.getItem(key);if(value==='granted'||value==='denied')consent=value;}catch{temporary=true;}

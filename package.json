@@ -7,7 +7,7 @@
     "build": "node src/build.js",
     "serve": "python3 -m http.server 3005 --bind 127.0.0.1 --directory dist",
     "check": "node scripts/check.mjs",
-    "test": "node scripts/analytics.test.mjs"
+    "test": "node scripts/analytics.test.mjs && node scripts/finder.test.mjs"
   },
   "license": "MIT",
   "engines": {

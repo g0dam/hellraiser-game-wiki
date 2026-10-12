@@ -128,6 +128,7 @@ export function renderPage({
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/engagement.css">
+  <link rel="stylesheet" href="/styles/finder.css">
   ${ld.map(jsonLd).join("\n  ")}
 </head>`;
 
@@ -138,7 +139,7 @@ export function renderPage({
     if (!text.includes('checklist-summary')) sections.push({id, label: text.replace(/<[^>]*>/g, '')});
     return `<h2 id="${id}">${text}</h2>`;
   });
-  if (sections.length > 2 && slug !== 'puzzles') content = content.replace(/(<p class="page-meta">.*?<\/p>)/s, `$1<nav class="page-toc" aria-label="On this page"><strong>On this page</strong><ul>${sections.map(s=>`<li><a href="#${s.id}">${s.label}</a></li>`).join('')}</ul></nav>`);
+  if (sections.length > 2 && slug !== 'puzzles' && slug !== 'guides') content = content.replace(/(<p class="page-meta">.*?<\/p>)/s, `$1<nav class="page-toc" aria-label="On this page"><strong>On this page</strong><ul>${sections.map(s=>`<li><a href="#${s.id}">${s.label}</a></li>`).join('')}</ul></nav>`);
   if(slug!=='index'&&slug!=='404') content=content.replace(/(<p class="page-meta">.*?<\/p>)/s, '$1<div data-guide-actions hidden></div>');
   const body = `
 <body>
@@ -151,6 +152,7 @@ ${footer()}
 <script src="/scripts/analytics.js" defer></script>
 <script src="/scripts/engagement.js" defer></script>
 <script src="/scripts/media.js" defer></script>
+<script src="/scripts/finder.js" defer></script>
 <script src="/scripts/main.js" defer><\/script>
 </body>
 </html>`;
